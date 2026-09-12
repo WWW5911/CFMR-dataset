@@ -1,0 +1,1974 @@
+{
+ "meta": {
+  "schema_version": 2,
+  "dataset": "CFMR",
+  "n_problems": 90,
+  "description": "90-problem CUTEst test set for derivative-free optimization: 60 nonlinear least-squares problems (CR) + 30 general-objective problems (EXT). Third-party transcription; see attribution.",
+  "objective_conventions": {
+   "sum_of_squares": "f_x0_expected and f_star_expected are ||r(x)||^2 = sum_i r_i(x)^2. This is what Cartis & Roberts (2019) Table 3 tabulates in its '2f(x0)' and '2f*' columns, because that paper defines f = 0.5*||r||^2. Values are stored exactly as printed there so a row can be checked against the paper by eye; a solver that minimises 0.5*||r||^2 reports half of them (see cfmr.rescale).",
+   "as_published": "f_x0_expected and f_star_expected are the objective f(x) exactly as tabulated in the source paper, with no factor."
+  },
+  "convergence_test": "More & Wild (2009): problem solved at budget k if f(x0) - f(x_k) >= (1 - tau) * (f(x0) - f_L), with f_L = f_star_expected. The test is invariant to a positive rescaling of f, so a convention may differ between entries, but f(x0), f(x_k) and f_L must share one convention within an entry.",
+  "budget": "budget = budget_scale * (n + 1) evaluations, i.e. budget_scale simplex gradients. budget_scale is stored per problem; read it, do not assume it.",
+  "verify_tol_rel": 0.001,
+  "fields": {
+   "name": "SIF problem name as the paper writes it; authoritative.",
+   "name_alt": "Names the same problem may carry in other MASTSIF versions, tried in order when `name` does not resolve. Empty for most entries.",
+   "sif_params": "SIF parameters reproducing the paper's dimensions.",
+   "sif_params_alt": "Candidate parameter dicts tried in order; the papers sometimes state a dimension ('N/2 = 50') rather than a SIF key.",
+   "m": "Residual length for CR entries; null for EXT.",
+   "objective_convention": "Units of f_x0_expected and f_star_expected. Redundant with is_nls by construction, and stated anyway: is_nls describes the problem, this describes these two numbers."
+  },
+  "sources": [
+   "C. Cartis and L. Roberts, 'A derivative-free Gauss-Newton method', Mathematical Programming Computation, 11(4), pp. 631-674, 2019. (CR problems, Table 3)",
+   "C. Cartis, J. Fiala, B. Marteau and L. Roberts, 'Improving the flexibility and robustness of model-based derivative-free optimization solvers', ACM Transactions on Mathematical Software, 45(3), pp. 1-41, 2019. (EXT problems)"
+  ]
+ },
+ "problems": {
+  "CR::ARGLALE": {
+   "suite": "CR",
+   "name": "ARGLALE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 400,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 700,
+   "f_star_expected": 300,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::ARGLBLE": {
+   "suite": "CR",
+   "name": "ARGLBLE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 400,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 546094400000000.0,
+   "f_star_expected": 99.62547,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::ARGTRIG": {
+   "suite": "CR",
+   "name": "ARGTRIG",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 32.99641,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::ARTIF": {
+   "suite": "CR",
+   "name": "ARTIF",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 36.59115,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::ARWHDNE": {
+   "suite": "CR",
+   "name": "ARWHDNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 198,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 495,
+   "f_star_expected": 27.66203,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::BDVALUES": {
+   "suite": "CR",
+   "name": "BDVALUES",
+   "name_alt": [],
+   "sif_params": {
+    "NDP": 102
+   },
+   "sif_params_alt": [
+    {
+     "NDP": 102
+    },
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 19434170.0,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::BRATU2D": {
+   "suite": "CR",
+   "name": "BRATU2D",
+   "name_alt": [],
+   "sif_params": {
+    "P": 10
+   },
+   "sif_params_alt": [
+    {
+     "P": 10
+    }
+   ],
+   "n": 64,
+   "m": 64,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.1560738,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3250
+  },
+  "CR::BRATU2DT": {
+   "suite": "CR",
+   "name": "BRATU2DT",
+   "name_alt": [],
+   "sif_params": {
+    "P": 10
+   },
+   "sif_params_alt": [
+    {
+     "P": 10
+    }
+   ],
+   "n": 64,
+   "m": 64,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.4521311,
+   "f_star_expected": 1.853474e-05,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3250
+  },
+  "CR::BRATU3D": {
+   "suite": "CR",
+   "name": "BRATU3D",
+   "name_alt": [],
+   "sif_params": {
+    "P": 5
+   },
+   "sif_params_alt": [
+    {
+     "P": 5
+    }
+   ],
+   "n": 27,
+   "m": 27,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 4.888529,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1400
+  },
+  "CR::BROWNALE": {
+   "suite": "CR",
+   "name": "BROWNALE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 252475.7,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::BROYDN3D": {
+   "suite": "CR",
+   "name": "BROYDN3D",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 111,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::BROYDNBD": {
+   "suite": "CR",
+   "name": "BROYDNBD",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 2404,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::CBRATU2D": {
+   "suite": "CR",
+   "name": "CBRATU2D",
+   "name_alt": [],
+   "sif_params": {
+    "P": 7
+   },
+   "sif_params_alt": [
+    {
+     "P": 7
+    }
+   ],
+   "n": 50,
+   "m": 50,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.4822531,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 2550
+  },
+  "CR::CHANDHEQ": {
+   "suite": "CR",
+   "name": "CHANDHEQ",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 6.923365,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::CHEMRCTA": {
+   "suite": "CR",
+   "name": "CHEMRCTA",
+   "name_alt": [],
+   "sif_params": {
+    "N": 50
+   },
+   "sif_params_alt": [
+    {
+     "N": 50
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 3.0935,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::CHEMRCTB": {
+   "suite": "CR",
+   "name": "CHEMRCTB",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1.446513,
+   "f_star_expected": 0.001404424,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::CHNRSBNE": {
+   "suite": "CR",
+   "name": "CHNRSBNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 50
+   },
+   "sif_params_alt": [
+    {
+     "N": 50
+    }
+   ],
+   "n": 50,
+   "m": 98,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 7635.84,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 2550
+  },
+  "CR::DRCAVTY1": {
+   "suite": "CR",
+   "name": "DRCAVTY1",
+   "name_alt": [],
+   "sif_params": {
+    "M": 10
+   },
+   "sif_params_alt": [
+    {
+     "M": 10
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.4513889,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::DRCAVTY2": {
+   "suite": "CR",
+   "name": "DRCAVTY2",
+   "name_alt": [],
+   "sif_params": {
+    "M": 10
+   },
+   "sif_params_alt": [
+    {
+     "M": 10
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.4513889,
+   "f_star_expected": 0.005449602,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::DRCAVTY3": {
+   "suite": "CR",
+   "name": "DRCAVTY3",
+   "name_alt": [],
+   "sif_params": {
+    "M": 10
+   },
+   "sif_params_alt": [
+    {
+     "M": 10
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.4513889,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::EIGENA": {
+   "suite": "CR",
+   "name": "EIGENA",
+   "name_alt": [],
+   "sif_params": {
+    "N": 10
+   },
+   "sif_params_alt": [
+    {
+     "N": 10
+    }
+   ],
+   "n": 110,
+   "m": 110,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 285,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5550
+  },
+  "CR::EIGENB": {
+   "suite": "CR",
+   "name": "EIGENB",
+   "name_alt": [],
+   "sif_params": {
+    "N": 10
+   },
+   "sif_params_alt": [
+    {
+     "N": 10
+    }
+   ],
+   "n": 110,
+   "m": 110,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 19,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5550
+  },
+  "CR::FLOSP2HH": {
+   "suite": "CR",
+   "name": "FLOSP2HH",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 519,
+   "f_star_expected": 0.3333333,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FLOSP2HL": {
+   "suite": "CR",
+   "name": "FLOSP2HL",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 519,
+   "f_star_expected": 0.3333333,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FLOSP2HM": {
+   "suite": "CR",
+   "name": "FLOSP2HM",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 519,
+   "f_star_expected": 0.3333333,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FLOSP2TH": {
+   "suite": "CR",
+   "name": "FLOSP2TH",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 516,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FLOSP2TL": {
+   "suite": "CR",
+   "name": "FLOSP2TL",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 516,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FLOSP2TM": {
+   "suite": "CR",
+   "name": "FLOSP2TM",
+   "name_alt": [],
+   "sif_params": {
+    "M": 2
+   },
+   "sif_params_alt": [
+    {
+     "M": 2
+    }
+   ],
+   "n": 59,
+   "m": 59,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 516,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3000
+  },
+  "CR::FREURONE": {
+   "suite": "CR",
+   "name": "FREURONE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 198,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 99556.5,
+   "f_star_expected": 11964.58,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::HATFLDG": {
+   "suite": "CR",
+   "name": "HATFLDG",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 25,
+   "m": 25,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 27,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1300
+  },
+  "CR::HYDCAR20": {
+   "suite": "CR",
+   "name": "HYDCAR20",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 99,
+   "m": 99,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1341.663,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5000
+  },
+  "CR::HYDCAR6": {
+   "suite": "CR",
+   "name": "HYDCAR6",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 29,
+   "m": 29,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 704.1073,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1500
+  },
+  "CR::INTEGREQ": {
+   "suite": "CR",
+   "name": "INTEGREQ",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.5730503,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::METHANB8": {
+   "suite": "CR",
+   "name": "METHANB8",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 31,
+   "m": 31,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1.043105,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1600
+  },
+  "CR::METHANL8": {
+   "suite": "CR",
+   "name": "METHANL8",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 31,
+   "m": 31,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 4345.1,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1600
+  },
+  "CR::MOREBVNE": {
+   "suite": "CR",
+   "name": "MOREBVNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 0.00036331,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::MSQRTA": {
+   "suite": "CR",
+   "name": "MSQRTA",
+   "name_alt": [],
+   "sif_params": {
+    "P": 10
+   },
+   "sif_params_alt": [
+    {
+     "P": 10
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 212.7162,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::MSQRTB": {
+   "suite": "CR",
+   "name": "MSQRTB",
+   "name_alt": [],
+   "sif_params": {
+    "P": 10
+   },
+   "sif_params_alt": [
+    {
+     "P": 10
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 205.0846,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::OSCIGRNE": {
+   "suite": "CR",
+   "name": "OSCIGRNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 612072000.0,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::PENLT1NE": {
+   "suite": "CR",
+   "name": "PENLT1NE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 101,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 114480600000.0,
+   "f_star_expected": 9.025e-09,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::PENLT2NE": {
+   "suite": "CR",
+   "name": "PENLT2NE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 200,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1591383.0,
+   "f_star_expected": 0.9809377,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::POWELLSE": {
+   "suite": "CR",
+   "name": "POWELLSE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 41875,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::QR3D": {
+   "suite": "CR",
+   "name": "QR3D",
+   "name_alt": [],
+   "sif_params": {
+    "M": 5
+   },
+   "sif_params_alt": [
+    {
+     "M": 5
+    }
+   ],
+   "n": 40,
+   "m": 40,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1.2,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 2050
+  },
+  "CR::QR3DBD": {
+   "suite": "CR",
+   "name": "QR3DBD",
+   "name_alt": [],
+   "sif_params": {
+    "M": 5
+   },
+   "sif_params_alt": [
+    {
+     "M": 5
+    }
+   ],
+   "n": 37,
+   "m": 40,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1.2,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 1900
+  },
+  "CR::SEMICN2U": {
+   "suite": "CR",
+   "name": "SEMICN2U",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100,
+    "LN": 90
+   },
+   "sif_params_alt": [
+    {
+     "N": 100,
+     "LN": 90
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 20250.37,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::SEMICON2": {
+   "suite": "CR",
+   "name": "SEMICON2",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100,
+    "LN": 90
+   },
+   "sif_params_alt": [
+    {
+     "N": 100,
+     "LN": 90
+    }
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 20250.37,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::SPMSQRT": {
+   "suite": "CR",
+   "name": "SPMSQRT",
+   "name_alt": [],
+   "sif_params": {
+    "M": 34
+   },
+   "sif_params_alt": [
+    {
+     "M": 34
+    }
+   ],
+   "n": 100,
+   "m": 164,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 74.33542,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::VARDIMNE": {
+   "suite": "CR",
+   "name": "VARDIMNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": 102,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 131058400000000.0,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::WATSONNE": {
+   "suite": "CR",
+   "name": "WATSONNE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 31
+   },
+   "sif_params_alt": [
+    {
+     "N": 31
+    }
+   ],
+   "n": 31,
+   "m": 31,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 30,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 1600
+  },
+  "CR::YATP1SQ": {
+   "suite": "CR",
+   "name": "YATP1SQ",
+   "name_alt": [
+    "YATP1NE",
+    "YATP1CNE"
+   ],
+   "sif_params": {
+    "N": 10
+   },
+   "sif_params_alt": [
+    {
+     "N": 10
+    }
+   ],
+   "n": 120,
+   "m": 120,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 2073643.0,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 6050
+  },
+  "CR::YATP2SQ": {
+   "suite": "CR",
+   "name": "YATP2SQ",
+   "name_alt": [],
+   "sif_params": {
+    "N": 10
+   },
+   "sif_params_alt": [
+    {
+     "N": 10
+    }
+   ],
+   "n": 120,
+   "m": 120,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 183168.7,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 6050
+  },
+  "CR::LUKSAN11": {
+   "suite": "CR",
+   "name": "LUKSAN11",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 198,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 626.064,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::LUKSAN12": {
+   "suite": "CR",
+   "name": "LUKSAN12",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 98,
+   "m": 192,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 32160.0,
+   "f_star_expected": 4292.197,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4950
+  },
+  "CR::LUKSAN13": {
+   "suite": "CR",
+   "name": "LUKSAN13",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 98,
+   "m": 224,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 64352.0,
+   "f_star_expected": 25188.86,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4950
+  },
+  "CR::LUKSAN14": {
+   "suite": "CR",
+   "name": "LUKSAN14",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 98,
+   "m": 224,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 26880.0,
+   "f_star_expected": 123.9235,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4950
+  },
+  "CR::LUKSAN15": {
+   "suite": "CR",
+   "name": "LUKSAN15",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 196,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 27015.85,
+   "f_star_expected": 3.569697,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::LUKSAN16": {
+   "suite": "CR",
+   "name": "LUKSAN16",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 196,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 13068.48,
+   "f_star_expected": 3.569697,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::LUKSAN17": {
+   "suite": "CR",
+   "name": "LUKSAN17",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 196,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 1687370.0,
+   "f_star_expected": 0.4931613,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::LUKSAN21": {
+   "suite": "CR",
+   "name": "LUKSAN21",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 100,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 99.98751,
+   "f_star_expected": 0,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "CR::LUKSAN22": {
+   "suite": "CR",
+   "name": "LUKSAN22",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 100,
+   "m": 198,
+   "objective_convention": "sum_of_squares",
+   "f_x0_expected": 24876.86,
+   "f_star_expected": 872.923,
+   "is_nls": true,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::ARWHEAD": {
+   "suite": "EXT",
+   "name": "ARWHEAD",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 297,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::BDEXP": {
+   "suite": "EXT",
+   "name": "BDEXP",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 26.52572,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::BOX": {
+   "suite": "EXT",
+   "name": "BOX",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 0,
+   "f_star_expected": -11.24044,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::BOXPOWER": {
+   "suite": "EXT",
+   "name": "BOXPOWER",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 866.2462,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::BROYDN7D": {
+   "suite": "EXT",
+   "name": "BROYDN7D",
+   "name_alt": [],
+   "sif_params": {
+    "N/2": 50
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    },
+    {
+     "N/2": 50
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 350.9842,
+   "f_star_expected": 40.12284,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::CHARDIS1": {
+   "suite": "EXT",
+   "name": "CHARDIS1",
+   "name_alt": [],
+   "sif_params": {
+    "NP1": 50
+   },
+   "sif_params_alt": [
+    {
+     "NP1": 50
+    },
+    {
+     "N": 98
+    },
+    {
+     "N": 50
+    }
+   ],
+   "n": 98,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 830.9353,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4950
+  },
+  "EXT::COSINE": {
+   "suite": "EXT",
+   "name": "COSINE",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 86.88067,
+   "f_star_expected": -99,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::CURLY10": {
+   "suite": "EXT",
+   "name": "CURLY10",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": -0.006237221,
+   "f_star_expected": -10031.63,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::CURLY20": {
+   "suite": "EXT",
+   "name": "CURLY20",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": -0.01296535,
+   "f_star_expected": -10031.63,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::DIXMAANA": {
+   "suite": "EXT",
+   "name": "DIXMAANA",
+   "name_alt": [
+    "DIXMAANA1"
+   ],
+   "sif_params": {
+    "M": 30
+   },
+   "sif_params_alt": [
+    {
+     "M": 30
+    }
+   ],
+   "n": 90,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 856,
+   "f_star_expected": 1,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4550
+  },
+  "EXT::DIXMAANF": {
+   "suite": "EXT",
+   "name": "DIXMAANF",
+   "name_alt": [],
+   "sif_params": {
+    "M": 30
+   },
+   "sif_params_alt": [
+    {
+     "M": 30
+    }
+   ],
+   "n": 90,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 1225.292,
+   "f_star_expected": 1,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4550
+  },
+  "EXT::DIXMAANP": {
+   "suite": "EXT",
+   "name": "DIXMAANP",
+   "name_alt": [],
+   "sif_params": {
+    "M": 30
+   },
+   "sif_params_alt": [
+    {
+     "M": 30
+    }
+   ],
+   "n": 90,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 2128.648,
+   "f_star_expected": 1,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 4550
+  },
+  "EXT::ENGVAL1": {
+   "suite": "EXT",
+   "name": "ENGVAL1",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 5841,
+   "f_star_expected": 109.0881,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::FMINSRF2": {
+   "suite": "EXT",
+   "name": "FMINSRF2",
+   "name_alt": [],
+   "sif_params": {
+    "P": 8
+   },
+   "sif_params_alt": [
+    {
+     "P": 8
+    }
+   ],
+   "n": 64,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 23.461408,
+   "f_star_expected": 1,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3250
+  },
+  "EXT::FMINSURF": {
+   "suite": "EXT",
+   "name": "FMINSURF",
+   "name_alt": [],
+   "sif_params": {
+    "P": 8
+   },
+   "sif_params_alt": [
+    {
+     "P": 8
+    }
+   ],
+   "n": 64,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 32.84031,
+   "f_star_expected": 1,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3250
+  },
+  "EXT::NCB20": {
+   "suite": "EXT",
+   "name": "NCB20",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 110,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 202.002,
+   "f_star_expected": 179.7358,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5550
+  },
+  "EXT::NCB20B": {
+   "suite": "EXT",
+   "name": "NCB20B",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 200,
+   "f_star_expected": 196.6801,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::NONCVXU2": {
+   "suite": "EXT",
+   "name": "NONCVXU2",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 2639748.0,
+   "f_star_expected": 231.8274,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::NONCVXUN": {
+   "suite": "EXT",
+   "name": "NONCVXUN",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 2727010.0,
+   "f_star_expected": 231.6808,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::NONDQUAR": {
+   "suite": "EXT",
+   "name": "NONDQUAR",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 106.0,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::ODC": {
+   "suite": "EXT",
+   "name": "ODC",
+   "name_alt": [],
+   "sif_params": {
+    "NX": 10,
+    "NY": 10
+   },
+   "sif_params_alt": [
+    {
+     "NX": 10,
+     "NY": 10
+    },
+    {
+     "N": 10
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 0,
+   "f_star_expected": -0.01098018,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::PENALTY3": {
+   "suite": "EXT",
+   "name": "PENALTY3",
+   "name_alt": [],
+   "sif_params": {
+    "N/2": 50
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    },
+    {
+     "N/2": 50
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 98017980.0,
+   "f_star_expected": 0.001,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::POWER": {
+   "suite": "EXT",
+   "name": "POWER",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 25502500.0,
+   "f_star_expected": 0,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::RAYBENDL": {
+   "suite": "EXT",
+   "name": "RAYBENDL",
+   "name_alt": [],
+   "sif_params": {
+    "NKNOTS": 32
+   },
+   "sif_params_alt": [
+    {
+     "NKNOTS": 32
+    }
+   ],
+   "n": 62,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 98.03445,
+   "f_star_expected": 96.25168,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 3150
+  },
+  "EXT::SCHMVETT": {
+   "suite": "EXT",
+   "name": "SCHMVETT",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": -280.2864,
+   "f_star_expected": -294,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::SINEALI": {
+   "suite": "EXT",
+   "name": "SINEALI",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": -0.841471,
+   "f_star_expected": -9900.962,
+   "is_nls": false,
+   "is_bound_constrained": true,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::SINQUAD": {
+   "suite": "EXT",
+   "name": "SINQUAD",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 0.6561,
+   "f_star_expected": -4005.585,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::TOINTGOR": {
+   "suite": "EXT",
+   "name": "TOINTGOR",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 50,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 5073.786,
+   "f_star_expected": 1373.905,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 2550
+  },
+  "EXT::TOINTGSS": {
+   "suite": "EXT",
+   "name": "TOINTGSS",
+   "name_alt": [],
+   "sif_params": {
+    "N": 100
+   },
+   "sif_params_alt": [
+    {
+     "N": 100
+    }
+   ],
+   "n": 100,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 892,
+   "f_star_expected": 10.10204,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 5050
+  },
+  "EXT::TOINTPSP": {
+   "suite": "EXT",
+   "name": "TOINTPSP",
+   "name_alt": [],
+   "sif_params": {},
+   "sif_params_alt": [
+    {}
+   ],
+   "n": 50,
+   "m": null,
+   "objective_convention": "as_published",
+   "f_x0_expected": 1827.709,
+   "f_star_expected": 225.5604,
+   "is_nls": false,
+   "is_bound_constrained": false,
+   "budget_scale": 50,
+   "budget": 2550
+  }
+ }
+}

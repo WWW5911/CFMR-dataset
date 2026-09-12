@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+
+# Regenerated on each installation from the dataset; machine-specific.
+cfmr_registry.json
+cfmr_problems.csv
+validate_pybobyqa.csv
+
+# Benchmark output. Patterns, not fixed names: the file name carries the
+# configuration (cfmr_pybobyqa_history_b100_rhoend1e-12.json), so a new setting
+# makes a new name and a fixed name would stop matching.
+cfmr_pybobyqa_history*.json
+cfmr_data_profile*.png
+
+# Symlink farm to the local MASTSIF plus the three baked SIF copies. Rebuilt by
+# cfmr._farm(); the SIF files are CUTEst's and are not redistributed here.
+mastsif_cfmr/
+
+# data/cfmr_observed.json is deliberately NOT ignored: it is a shipped companion
+# to the dataset, and its provenance block names the machine that produced it.
